@@ -76,11 +76,11 @@
 				prefix: "jQuery.each($1,function($2){with(this){",
 				suffix: "}});"
 			},
-			if: {
+			"if": {
 				prefix: "if($1){",
 				suffix: "}"
 			},
-			else: {
+			"else": {
 				prefix: "}else{"
 			},
 			html: {
@@ -116,7 +116,7 @@
 							throw "Template not found: " + type;
 						}
 
-						var def = tmpl._default;
+						var def = tmpl._default || [ null, null ];
 
 						return "');" + tmpl[slash ? "suffix" : "prefix"]
 							.split("$1").join(args || def[0])
