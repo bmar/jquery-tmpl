@@ -43,6 +43,10 @@ jQuery(function(){
 	$("#sometmpl3")
         	.render( dataObject ) // Returns an LI with data filled in using 'join' tmplcmd
         	.appendTo("ul");
+
+	$("#sometmpl4")
+        	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in using 'count' to total the data context +/- the given adjustment
+        	.appendTo("ul");
 });
 </script>
 
@@ -56,6 +60,10 @@ jQuery(function(){
 
 <script id="sometmpl3" type="text/html">
 	<li>${$i}) <a href="${url}">${name}</a> ({{join(, ) cities}})</li>
+</script>
+
+<script id="sometmpl4" type="text/html">
+	<li>${$i} of {{count -1}}) <a href="${url}">${name}</a> Cities: {{each(i,city) cities}}${city} (${$i} of {{count -1}}){{/each}}</li>
 </script>
 
 <ul></ul>

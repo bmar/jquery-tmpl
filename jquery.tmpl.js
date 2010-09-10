@@ -92,6 +92,9 @@
 			},
 			join: {
 				prefix: "_.push($1.join('$2'));"
+			},
+			count: {
+				prefix: "_.push(($.each.arguments)? $.each.arguments[0].length+$1 : $.map.arguments[0].length+$1 || 1);"
 			}
 		},
 
