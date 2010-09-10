@@ -89,6 +89,9 @@
 			"=": {
 				_default: [ "this" ],
 				prefix: "_.push($.encode(typeof $1==='function'?$1.call(this):$1));"
+			},
+			join: {
+				prefix: "_.push($1.join('$2'));"
 			}
 		},
 

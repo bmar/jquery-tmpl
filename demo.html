@@ -39,6 +39,10 @@ jQuery(function(){
 
 	// Appends multiple LI, filled with data, into the UL
 	$("ul").append( tmpl, arrayOfDataObjects );
+	
+	$("#sometmpl3")
+        	.render( dataObject ) // Returns an LI with data filled in using 'join' tmplcmd
+        	.appendTo("ul");
 });
 </script>
 
@@ -48,6 +52,10 @@ jQuery(function(){
 
 <script id="sometmpl2" type="text/html">
 	<li>${$i}) <a href="${url}">${name}</a> Cities: {{each(i,city) cities}}${city}{{/each}}</li>
+</script>
+
+<script id="sometmpl3" type="text/html">
+	<li>${$i}) <a href="${url}">${name}</a> ({{join(, ) cities}})</li>
 </script>
 
 <ul></ul>
