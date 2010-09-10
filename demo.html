@@ -47,6 +47,10 @@ jQuery(function(){
 	$("#sometmpl4")
         	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in using 'count' to total the data context +/- the given adjustment
         	.appendTo("ul");
+
+	$("#sometmpl5")
+        	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in using 'start' to adjust the iterator '$i'
+        	.appendTo("ul");
 });
 </script>
 
@@ -63,7 +67,7 @@ jQuery(function(){
 </script>
 
 <script id="sometmpl4" type="text/html">
-	<li>${$i} of {{count -1}}) <a href="${url}">${name}</a> Cities: {{each(i,city) cities}}${city} (${$i} of {{count -1}}){{/each}}</li>
+	<li>${$i} of {{count -1}}) <a href="${url}">${name}</a> Cities: {{each(i,city) cities}}${city} (${i} of {{count -1}}){{/each}}</li>
 </script>
 
 <ul></ul>
