@@ -70,4 +70,8 @@ jQuery(function(){
 	<li>${$i} of {{count -1}}) <a href="${url}">${name}</a> Cities: {{each(i,city) cities}}${city} (${i} of {{count -1}}){{/each}}</li>
 </script>
 
+<script id="sometmpl5" type="text/html">
+	<li>{{start 1}} of {{count}}) <a href="${url}">${name}</a> Cities: {{each(i,city) cities}}${city} ({{start(1) i}} of {{count}}){{/each}}</li>
+</script>
+
 <ul></ul>

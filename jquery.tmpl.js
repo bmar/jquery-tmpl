@@ -95,6 +95,10 @@
 			},
 			count: {
 				prefix: "_.push(($.each.arguments)? $.each.arguments[0].length+$1 : $.map.arguments[0].length+$1 || 1);"
+			},
+			start: {
+				_default: [ 0, "$i" ],
+				prefix: "_.push($2+$1);"
 			}
 		},
 
