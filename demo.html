@@ -51,6 +51,15 @@ jQuery(function(){
 	$("#sometmpl5")
         	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in using 'start' to adjust the iterator '$i'
         	.appendTo("ul");
+
+	$("#sometmpl6")
+        	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in using 'partial' to import another template rendering
+        	.appendTo("ul");
+
+	jQuery.templates.citycache = jQuery.tmpl('<li>{{start 1}} of {{count}}) ${this}</li>');
+	$("#sometmpl7")
+        	.render( arrayOfDataObjects ) // Returns multiple LIs with data filled in using 'partial' to import a cached template
+        	.appendTo("ul#static");
 });
 </script>
 
@@ -74,4 +83,16 @@ jQuery(function(){
 	<li>{{start 1}} of {{count}}) <a href="${url}">${name}</a> Cities: {{each(i,city) cities}}${city} ({{start(1) i}} of {{count}}){{/each}}</li>
 </script>
 
-<ul></ul>
+<script id="citytemplate" type="text/html">
+	<li>{{start 1}} of {{count}}) ${this}</li>
+</script>
+
+<script id="sometmpl6" type="text/html">
+	<li>{{start 1}} of {{count}}) <a href="${url}">${name}</a><ul>{{partial("#citytemplate") cities}}</ul></li>
+</script>
+
+<script id="sometmpl7" type="text/html">
+	<li>{{start 1}} of {{count}}) <a href="${url}">${name}</a><ul>{{partial('citycache') cities}}</ul></li>
+</script>
+
+<ul id="static"></ul>

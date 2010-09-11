@@ -99,6 +99,9 @@
 			start: {
 				_default: [ 0, "$i" ],
 				prefix: "_.push($2+$1);"
+			},
+			partial: {
+				prefix: "$1['$partial']=$data;_.push($('<div/>').append($.render($($2).get(0)||$2,$1)).html());"
 			}
 		},
 
